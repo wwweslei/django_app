@@ -53,7 +53,7 @@ DATABASES = {
 pip install dj-static
 
 ### wsgi
-* from dj_static import Cling
+* 
 * application = Cling(get_wsgi_application())
 
 ### Settings.py
