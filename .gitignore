@@ -3,3 +3,5 @@
 *pyc
 .env
 staticfiles/
+README.md
+bot.py
