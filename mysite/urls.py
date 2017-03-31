@@ -22,13 +22,3 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home),
 ]
-
-
-# # # #####     conf bot     ###### # # #
-import telepot
-import _thread
-from bot_conf import handle
-
-bot = telepot.Bot('313706502:AAHJvKb0hRk-U5B6YFzLTuYIByr5EFwHSWQ')
-_thread.start_new_thread(bot.message_loop, (handle,))
-# # # #####    fim conf bot   ###### # # #
