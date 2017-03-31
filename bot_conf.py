@@ -13,7 +13,7 @@ def handle(msg):
 
         if '/1' == command:
             bot.sendMessage(chat_id, 'Ok be working')
-    time.sleep(5)
+    time.sleep(100)
 
 
 
