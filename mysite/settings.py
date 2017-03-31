@@ -4,10 +4,6 @@ from dj_database_url import parse as dburl
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-#SECRET_KEY = 'fmae81&xxegm%e^6gd5-m_u=rewl!vvt*u79bf#(fepiy3j8#d'
-#DEBUG = True
-
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
@@ -57,7 +53,6 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
@@ -67,7 +62,6 @@ DATABASES = {
 
 
 # Password validation
-# https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -86,7 +80,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'pt-br'
 
@@ -98,9 +91,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
