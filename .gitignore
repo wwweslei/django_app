@@ -4,3 +4,5 @@
 .env
 staticfiles/
 README.md
+READMEE.md
+.gitignore
