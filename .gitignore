@@ -1,5 +1,7 @@
 .idea
 *.sqlite3
+
+envDjango_Moc
 *pyc
 .env
 staticfiles/

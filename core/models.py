@@ -1,45 +1,45 @@
 from django.db import models
-from django.core.urlresolvers import reverse_lazy as r
 
-class Distributor(models.Model):
-    distributor = models.CharField('distribuidor', max_length=50, unique=True)
-
-    class Meta:
-        ordering = ['distributor']
-        verbose_name = 'distribuidor'
-        verbose_name_plural = 'distribuidores'
-
-    def __str__(self):
-        return self.distributor
-
-class Category(models.Model):
-    category = models.CharField('categoria', max_length=50, unique=True)
+class Veiculo(models.Model):
+    placa = models.CharField('placa', max_length=20, unique=True)
+    tipo = models.CharField('tipo', max_length=20, blank=True)
+    modelo = models.CharField('modelo', max_length=20, blank=True)
+    id_cliente = models.IntegerField('id_cliente')
 
     class Meta:
-        ordering = ['category']
-        verbose_name = 'categoria'
-        verbose_name_plural = 'categorias'
+        ordering = ['placa']
+        verbose_name = 'veiculo'
+        verbose_name_plural = 'veiculos'
 
     def __str__(self):
-        return self.category
+        return self.placa
 
-class Movie(models.Model):
-    movie = models.CharField('filme', max_length=100)
-    category = models.ForeignKey(
-        'Category', verbose_name='categoria', related_name='movie_category')
-    distributor = models.ForeignKey(
-        'Distributor', verbose_name='distribuidor', related_name='movie_distributor')
-    raised = models.DecimalField('arrecadou', max_digits=4, decimal_places=3)
-    liked = models.BooleanField('gostou', default=True)
-    release = models.DateTimeField(u'lançamento')
+
+class Cliente(models.Model):
+    nome = models.CharField('nome', max_length=20)
+    end = models.CharField('end', max_length=20, blank=True)
+    tel = models.CharField('tel', max_length=20, blank=True)
+
 
     class Meta:
-        ordering = ['-release']
-        verbose_name = 'filme'
-        verbose_name_plural = 'filmes'
+        ordering = ['nome']
+        verbose_name = 'cliente'
+        verbose_name_plural = 'clientes'
 
     def __str__(self):
-        return self.movie
+        return self.nome
 
-    def get_absolute_url(self):
-        return r('core:movie_detail', kwargs={'pk': self.pk})
+
+class Servicos(models.Model):
+    servico = models.CharField('serviço', max_length=20)
+    valor = models.DecimalField('valor', max_digits=5, decimal_places=2)
+    id_cliente = models.IntegerField('id_cliente')
+    id_veiculo = models.IntegerField('id_veiculos')
+
+    class Meta:
+        ordering = ['servico']
+        verbose_name = 'serviço'
+        verbose_name_plural = 'serviços'
+
+    def __str__(self):
+        return self.servico
